@@ -31,3 +31,9 @@ target/
 out/
 .externalToolBuilders/
 EditorMD/
+.idea/core.iml
+.idea/modules.xml
+.idea/workspace.xml
+*.iml
+*.xml
+*.xml
