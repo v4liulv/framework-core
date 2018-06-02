@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property>
+        <name>o_db_url</name>
+        <!--<value>jdbc:oracle:thin:@//dzzx-db1.hnisi.com.cn:1523/zxkfk</value>-->
+        <value>jdbc:oracle:thin:@//localhost:1521/orcl</value>
+    </property>
+    <property>
+        <name>o_db_username</name>
+       <!-- <value>pcs_dsjyyfx_bzk</value>-->
+        <value>YY_GXKSH_ZSB</value>
+    </property>
+    <property>
+        <name>o_db_password</name>
+        <!--<value>pcs_dsjyyfx_bzk</value>-->
+        <value>123456</value>
+    </property>
+    <property>
+        <name>MODEL_TYPE_CODE</name>
+        <value>002</value>
+    </property>
+    <property>
+        <name>CONFIG_TABLE_NAME_CODE</name>
+        <value>CONFIG</value>
+    </property>
+
+</configuration>
