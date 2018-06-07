@@ -30,12 +30,6 @@ hs_err_pid*
 target/
 out/
 .externalToolBuilders/
-EditorMD/
-.idea/core.iml
-.idea/modules.xml
-.idea/workspace.xml
 *.iml
 .idea/modules.xml
-.idea/workspace.xml
-*.iml
 .idea/workspace.xml
