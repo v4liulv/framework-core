@@ -23,6 +23,7 @@
         <junit.version>4.12</junit.version>
         <axis2.version>1.7.4</axis2.version>
         <log4j.version>1.2.17</log4j.version>
+        <log4j2.version>2.9.1</log4j2.version>
         <slf4j.version>1.7.5</slf4j.version>
         <dom4j.version>1.6.1</dom4j.version>
         <guava.version>16.0.1</guava.version>
@@ -87,6 +88,22 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <!-- log4j 2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4j2.version}</version>
         </dependency>
         <!-- slf4j -->
         <dependency>
