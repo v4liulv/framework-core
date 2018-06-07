@@ -24,7 +24,7 @@ public class PropertyUtil {
 
     //判断应用 日志推送应用 配置文件
     private static int gxksh_type = BaseConfig.PROPERTIES_TYPE;
-    private static String confPath1 = "/gxksh-site.xml";
+    private static String confPath1 = "/core-site.xml";
 
     /**
      * 读取properties返回Properties实例
@@ -98,16 +98,26 @@ public class PropertyUtil {
     }
 
     /**
-     * @param type 根据类型获取对应的xml配置文件 和 类型
+     * 默认读取core-site.xml配置
+     *
      * @return Map<参数名.值>
      */
-    public static Map<String, String> getValues(int type) {
+    public static Map<String, String> getValues() {
+        return getValues(null);
+    }
+
+    /**
+     * @param filePath 根据类型获取对应的xml配置文件 和 类型
+     * @return Map<参数名.值>
+     */
+    public static Map<String, String> getValues(String filePath) {
         String confPath;
-        if (gxksh_type == type) {
+
+        if(filePath == null || filePath.trim().equals("")){
+            logger.info("The configuration file is empty and the core.site file is read by default");
+            confPath = filePath;
+        }else {
             confPath = confPath1;
-        } else {
-            logger.error("Error PropertyUtil is Method getValues param 'type' not matching return null, please look param 'type' whether or not correct !!!");
-            return null;
         }
 
         InputStream is = PropertyUtil.class.getResourceAsStream(confPath);
@@ -116,19 +126,14 @@ public class PropertyUtil {
 
         try {
             Document doc = reader.read(is);
-            // is yjtrz ts
-            if (gxksh_type == type) {
-                //IS_START_YJTRZTS
-                Element yjtrztsElement = (Element) doc.selectSingleNode("configuration");
-                List<Element> yjtrztsElementElements = yjtrztsElement.elements("property");
-                if (yjtrztsElementElements == null || yjtrztsElementElements.size() < 0) return null;
-                for (Element property : yjtrztsElementElements) {
-                    String key = property.element("name").getText();
-                    String value = property.element("value").getText();
-                    resMap.put(key, value);
-                }
+            Element yjtrztsElement = (Element) doc.selectSingleNode("configuration");
+            List<Element> yjtrztsElementElements = yjtrztsElement.elements("property");
+            if (yjtrztsElementElements == null || yjtrztsElementElements.size() < 0) return null;
+            for (Element property : yjtrztsElementElements) {
+                String key = property.element("name").getText();
+                String value = property.element("value").getText();
+                resMap.put(key, value);
             }
-
         } catch (DocumentException e) {
             e.printStackTrace();
         }
@@ -143,9 +148,9 @@ public class PropertyUtil {
      * @param code 根据对应的code获取但对于的值
      * @return 返回文件中读取的code的值
      */
-    public static String getValue(int type, String code) {
+    public static String getValue(int path, String code) {
         String confPath;
-        if (gxksh_type == type) {
+        if (gxksh_type == path) {
             confPath = confPath1;
         } else {
             logger.error("Error PropertyUtil is Method getValues param 'type' not matching return null, please look param 'type' whether or not correct !!!");
@@ -162,8 +167,8 @@ public class PropertyUtil {
      * @param code      查询的code key值
      * @return 返回code key 对应的Value值
      */
-    public static String getValue(String inputPath, String code) {
-        InputStream inputStream = PropertyUtil.class.getResourceAsStream(inputPath);
+    public static String getValue(String filePath, String code) {
+        InputStream inputStream = PropertyUtil.class.getResourceAsStream(filePath);
         return PropertyUtil.getValue(inputStream, code);
     }
 
