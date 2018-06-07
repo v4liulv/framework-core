@@ -149,12 +149,14 @@
             <version>${axis2.version}</version>
         </dependency>
         <!-- axis2 结束  -->
+        <!-- Oracle Driver开始 -->
         <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc6 -->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
             <version>11.2.0.3</version>
         </dependency>
+        <!-- Oracle DriverEnd -->
 
 
     </dependencies>
