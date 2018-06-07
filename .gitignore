@@ -37,3 +37,5 @@ EditorMD/
 *.iml
 .idea/modules.xml
 .idea/workspace.xml
+*.iml
+.idea/workspace.xml
