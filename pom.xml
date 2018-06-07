@@ -26,6 +26,9 @@
         <slf4j.version>1.7.5</slf4j.version>
         <dom4j.version>1.6.1</dom4j.version>
         <guava.version>16.0.1</guava.version>
+        <fileupload.version>1.2.2</fileupload.version>
+        <fastjson.version>1.1.26</fastjson.version>
+        <jackson.version>1.9.11</jackson.version>
 
         <currentYear>2018</currentYear>
         <ipprefix>127.0.1.</ipprefix>
@@ -108,6 +111,24 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <!-- fileupload 文件上传 -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${fileupload.version}</version>
+        </dependency>
+        <!-- fastJson json数组有关的 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- Jackson 把Java对象转换成 JSON 字串 -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
         <!-- axis2 开始  -->

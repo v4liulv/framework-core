@@ -1,5 +1,7 @@
 # framework-core
-框架基础部分
+
+
+## 框架基础部分
 
 提供Java基础的框架和工具类使用，其中包含
 - 工具类-日期转换
@@ -8,9 +10,14 @@
 - UUID生成工具
 - 内置WebService连接工具等
 
-## core-site.xml
 
-基础核心的配置文件
+## 
+
+
+
+## 配置文件core-site.xml
+
+基础核心的配置文件，可在Maven调用后覆盖
 ```xml
 <configuration>
  <property>

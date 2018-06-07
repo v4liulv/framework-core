@@ -23,13 +23,9 @@ neo4j-desktop-1.0.7-setup.exe
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-.idea/*
-*.idea/*
-.svn/*
-.settings/*
+.idea
+.svn/
+.settings/
 target/
 out/
 .externalToolBuilders/
-*.iml
-.idea/modules.xml
-.idea/workspace.xml
