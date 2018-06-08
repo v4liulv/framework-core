@@ -1,10 +1,11 @@
 package com.sinobest.framework.util;
 
-import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +21,7 @@ import java.util.Properties;
  * read property file
  */
 public class PropertyUtil {
-    private final static Logger logger = Logger.getLogger(PropertyUtil.class);
+    private final static Logger logger = LoggerFactory.getLogger(PropertyUtil.class);
 
     //判断应用 日志推送应用 配置文件
     private static int gxksh_type = BaseConfig.PROPERTIES_TYPE;

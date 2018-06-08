@@ -1,7 +1,8 @@
 package com.sinobest.framework.util.encoding;
 
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by liulv on 2017/5/23.
@@ -10,7 +11,7 @@ import org.apache.log4j.Logger;
  */
 public class EncodingUtil
 {
-    private static Logger logger = Logger.getLogger(EncodingUtil.class);
+    private static Logger logger = LoggerFactory.getLogger(EncodingUtil.class);
 
     public static String getEncoding(String str) {
         String encode = "GB2312";
