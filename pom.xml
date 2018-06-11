@@ -59,7 +59,7 @@
             <url>D:\libs\maven\</url>
         </repository>
 
-        <!-- 我自己的GitHub版本库 -->
+        <!-- liulv的GitHub版本库 -->
         <repository>
             <id>maven-repo-master</id>
             <url>https://raw.githubusercontent.com/v4liulv/maven-repo/master</url>
