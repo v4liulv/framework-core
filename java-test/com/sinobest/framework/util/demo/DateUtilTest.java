@@ -31,8 +31,8 @@ public class DateUtilTest
 
     @Test
     public void dateStrTransformationMillisecondsStrTest() throws ParseException {
-        String dataStr = "20170822144242";
-        String msStr = DateUtil.dateStrTransformationMillisecondsStr(dataStr, 2);
+        String dataStr = "2017/8/22 14:42:42";
+        String msStr = DateUtil.dateStrTransformationMillisecondsStr(dataStr, 0);
 
         System.out.println(msStr);
 
@@ -51,6 +51,7 @@ public class DateUtilTest
 
         System.out.println("11 : " + DateUtil.dateFormatString(ts));
     }
+
     @Test
     public void nowDateUtilDateFormatsStringTest() {
         System.out.println("11 : " + DateUtil.nowDateFormatString());
