@@ -105,4 +105,26 @@ public class StringUtil {
         return str.substring(1, str.length() - 1);
     }
 
+
+    /**
+     * 用于Hiberenate实体属性名称 转换为sql时候的字段名称
+     *
+     * 规则：当属性名称字母大写时，在此字母前添加_，并且修改为小写
+     *
+     * @param attributeName 属性名称字符串
+     * @return sql字段名称
+     */
+    public static String tranFieldName(String attributeName){
+        StringBuilder builder = new StringBuilder();
+
+        for (char s : attributeName.toCharArray()) {
+            if(Character.isUpperCase(s)){
+                builder.append("_").append(Character.toLowerCase(s));
+                continue;
+            }
+            builder.append(s);
+        }
+
+        return builder.toString();
+    }
 }

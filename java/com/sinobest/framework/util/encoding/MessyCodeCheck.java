@@ -6,11 +6,17 @@ import java.util.regex.Pattern;
 
 /**
  * Created by liulv on 2017/5/23.
- *
+ * <p>
  * 判断字符串是否乱码
  */
-public class MessyCodeCheck
-{
+public class MessyCodeCheck {
+
+    /**
+     * 判断传入的字符是否中文字符
+     *
+     * @param c 字符
+     * @return 判断是否是中文字符
+     */
     public static boolean isChinese(char c) {
         Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
         if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
@@ -24,6 +30,12 @@ public class MessyCodeCheck
         return false;
     }
 
+    /**
+     * 判断是否是英文字符乱码，如果乱码返回trues
+     *
+     * @param strName 字符串
+     * @return 判断是否英文字符
+     */
     public static boolean isMessyCode(String strName) {
         Pattern p = Pattern.compile("\\s*|\t*|\r*|\n*");
         Matcher m = p.matcher(strName);
@@ -32,47 +44,38 @@ public class MessyCodeCheck
         char[] ch = temp.trim().toCharArray();
         float chLength = ch.length;
         float count = 0;
-        for (int i = 0; i < ch.length; i++) {
-            char c = ch[i];
+        for (char c : ch) {
             if (!Character.isLetterOrDigit(c)) {
-
                 if (!isChinese(c)) {
                     count = count + 1;
-                    //System.out.print(c);
                 }
             }
         }
         float result = count / chLength;
-        if (result > 0.4) {
-            return true;
-        } else {
-            return false;
-        }
+        return result > 0.4;
 
     }
 
+    /**
+     *
+     * @param strName 字符串
+     * @return 判断是否是英文
+     */
     public static boolean isMessyCodeSu(String strName) {
-        try
-        {
+        try {
             strName = new String(strName.getBytes("GBK"), "GBK");
-            //System.out.println("strName===" + strName);
-        } catch (UnsupportedEncodingException e )
-        {
-            //e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
             return true;
         }
-        char ws[] = new char[]{'ㄨ' ,'℃', '?', '？', '&'};
-        for(int i = 0; i < strName.length(); i++)
-        {
+        char[] ws = new char[]{'ㄨ', '℃', '?', '？', '&'};
+        for (int i = 0; i < strName.length(); i++) {
             char c = strName.charAt(i);
-            for (char v : ws)
-            {
-                if (c == v)
-                {
+            for (char v : ws) {
+                if (c == v) {
                     return true;
                 }
             }
-            if ((int)c == 0xfffd){
+            if ((int) c == 0xfffd) {
                 return true;
             }
         }

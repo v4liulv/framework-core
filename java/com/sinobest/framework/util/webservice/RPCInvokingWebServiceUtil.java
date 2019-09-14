@@ -12,22 +12,21 @@ import java.io.StringWriter;
  * Created by liulv on 2017/4/20.
  * <p>
  * 使用RPC方式调用WebService工具类
+ *
+ * 针对ajax 2的webServer调研
  */
-public class RPCInvokingWebServiceUtil
-{
+public class RPCInvokingWebServiceUtil {
     /**
-     * @param address   com.sinobest.kshfx.webservice uri地址
-     * @param namespaceURI 命名空间
-     * @param localName 方法名
+     * @param address        webservice uri地址
+     * @param namespaceURI   命名空间
+     * @param localName      方法名
      * @param opAddEntryArgs 参数 Object对象
      * @return WebService响应返回结果
      */
-    public static String invokingWebService(String address, String namespaceURI, String localName, Object[] opAddEntryArgs)
-    {
+    public static String invokingWebService(String address, String namespaceURI, String localName, Object[] opAddEntryArgs) {
         //使用RPC方式调用WebService
         String resultStr;
-        try
-        {
+        try {
             RPCServiceClient serviceClient = new RPCServiceClient();
 
             Options options = serviceClient.getOptions();
@@ -44,14 +43,13 @@ public class RPCInvokingWebServiceUtil
             QName opAddEntry = new QName(namespaceURI, localName);
             //调用bigdataService方法并输出该方法的返回值,
             //返回对象是一个Object的数组,拿数组的第一个值，转换强转即可
-            resultStr = serviceClient.invokeBlocking(opAddEntry, opAddEntryArgs, classes)[0].toString();
+            resultStr = serviceClient.invokeBlocking(opAddEntry,
+                    opAddEntryArgs, classes)[0].toString();
 
-            if (resultStr == null || resultStr.equals(""))
-            {
+            if (resultStr == null || resultStr.equals("")) {
                 resultStr = "Error 返回的报文无数据，返回为空！！！！";
             }
-        } catch (Exception e )
-        {
+        } catch (Exception e) {
             StringWriter stringWriter = new StringWriter();
             PrintWriter writer = new PrintWriter(stringWriter);
             e.printStackTrace(writer);

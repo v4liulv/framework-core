@@ -17,8 +17,7 @@ public class EncodingUtil
         String encode = "GB2312";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) { // 判断是不是GB2312
-                String s = encode;
-                return s; // 是的话，返回GB2312，以下代码同理
+                return encode; // 是的话，返回GB2312，以下代码同理
             }
         } catch (Exception e) {
             logger.error("getEncoding异常---GB2312", e);
@@ -26,8 +25,7 @@ public class EncodingUtil
         encode = "ISO-8859-1";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) { // 判断是不是ISO-8859-1
-                String s1 = encode;
-                return s1;
+                return encode;
             }
         } catch (Exception e) {
             logger.error("getEncoding异常---ISO-8859-1", e);
@@ -35,8 +33,7 @@ public class EncodingUtil
         encode = "UTF-8";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) { // 判断是不是UTF-8编码
-                String s2 = encode;
-                return s2;
+                return encode;
             }
         } catch (Exception e) {
             logger.error("getEncoding异常---UTF-8", e);
@@ -44,8 +41,7 @@ public class EncodingUtil
         encode = "GBK";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) { // 判断是不是GBK
-                String s3 = encode;
-                return s3;
+                return encode;
             }
         } catch (Exception e) {
             logger.error("getEncoding异常---GBK", e);

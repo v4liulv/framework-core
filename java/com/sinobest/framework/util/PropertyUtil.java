@@ -19,13 +19,16 @@ import java.util.Properties;
  * Created by liulv on 2017/6/9.
  * <p>
  * read property file
+ *
+ * @Deprecated 已经不推荐使用，properties相关配置读取请查看{@link PropertiesUtil}, XML配置读取请查看{@link XMLPropertyUtil}
  */
+@Deprecated
 public class PropertyUtil {
     private final static Logger logger = LoggerFactory.getLogger(PropertyUtil.class);
 
     //判断应用 日志推送应用 配置文件
     private static int gxksh_type = BaseConfig.PROPERTIES_TYPE;
-    private static String confPath1 = "/core-site.xml";
+    private static String confPath1 = "/yy_core-site.xml";
 
     /**
      * 读取properties返回Properties实例
@@ -127,10 +130,10 @@ public class PropertyUtil {
 
         try {
             Document doc = reader.read(is);
-            Element yjtrztsElement = (Element) doc.selectSingleNode("configuration");
-            List<Element> yjtrztsElementElements = yjtrztsElement.elements("property");
-            if (yjtrztsElementElements == null || yjtrztsElementElements.size() < 0) return null;
-            for (Element property : yjtrztsElementElements) {
+            Element configurationElement = (Element) doc.selectSingleNode("configuration");
+            List<Element> propertyElement = configurationElement.elements("property");
+            if (propertyElement == null || propertyElement.size() < 0) return null;
+            for (Element property : propertyElement) {
                 String key = property.element("name").getText();
                 String value = property.element("value").getText();
                 resMap.put(key, value);
@@ -204,11 +207,7 @@ public class PropertyUtil {
 
 
     public static void main(String[] args) {
-       /* String relativelyPath=System.getProperty("csv.dir");
-        String cql1 = readFille(relativelyPath + "/base/cql/cql.properties", new String[]{"cql1"}).get("cql1");
-        System.out.println(cql1);*/
-
-        // System.out.println(PropertyUtil.getValue("1", "CODE"));
+        System.out.println(PropertyUtil.getValue(1, "o_db_url"));
 
     }
 }

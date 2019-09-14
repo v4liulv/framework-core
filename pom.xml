@@ -21,18 +21,25 @@
         <github.global.server>github</github.global.server>
 
         <junit.version>4.12</junit.version>
+        <axis.version>1.4</axis.version>
         <axis2.version>1.7.4</axis2.version>
         <!--<log4j.version>1.2.17</log4j.version>-->
         <log4j2.version>2.8.2</log4j2.version>
         <slf4j.version>1.7.25</slf4j.version>
         <dom4j.version>1.6.1</dom4j.version>
+
+        <logback.version>1.2.3</logback.version>
+        <logback-ext-spring.version>0.1.4</logback-ext-spring.version>
+
         <guava.version>16.0.1</guava.version>
         <fileupload.version>1.2.2</fileupload.version>
         <fastjson.version>1.1.26</fastjson.version>
-        <alibaba.druid.version>1.2.47</alibaba.druid.version>
+        <alibaba.druid.version>1.1.12</alibaba.druid.version>
         <jackson.version>1.9.11</jackson.version>
         <servlet.jstl>1.2</servlet.jstl>
         <servlet.version>3.0-alpha-1</servlet.version>
+        <orcale.version>11.2.0.3</orcale.version>
+        <commons-lang.version>2.6</commons-lang.version>
 
         <currentYear>2018</currentYear>
         <ipprefix>127.0.1.</ipprefix>
@@ -86,39 +93,16 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
-        <!-- log4j -->
-        <!--<dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>-->
-        <!-- log4j 2 -->
+        <!-- logback -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j2.version}</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-web</artifactId>
-            <version>${log4j2.version}</version>
-        </dependency>
-        <!-- slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <!-- 解决SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder". -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+            <version>${logback-ext-spring.version}</version>
         </dependency>
         <!-- dom4j -->
         <dependency>
@@ -177,6 +161,32 @@
             <!--<scope>provided</scope>-->
         </dependency>
 
+        <!-- axis 开始 -->
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>${axis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-discovery</groupId>
+            <artifactId>commons-discovery</artifactId>
+            <version>0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-jaxrpc</artifactId>
+            <version>${axis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.axis</groupId>
+            <artifactId>axis-saaj</artifactId>
+            <version>${axis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+            <version>${axis.version}</version>
+        </dependency>
         <!-- axis2 开始  -->
         <dependency>
             <groupId>org.apache.axis2</groupId>
@@ -221,10 +231,15 @@
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.3</version>
+            <version>${orcale.version}</version>
         </dependency>
         <!-- Oracle DriverEnd -->
 
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>${commons-lang.version}</version>
+        </dependency>
 
     </dependencies>
 
@@ -235,7 +250,7 @@
         <testSourceDirectory>java-test</testSourceDirectory>
 
         <!--maven打包时如何把包下面的非java文件配置文件也包含，通过resources-resource下配置directory和includes实现 -->
-        <resources>
+        <!--<resources>
             <resource>
                 <directory>resources</directory>
                 <includes>
@@ -252,7 +267,7 @@
                     <include>**/*.dtd</include>
                 </includes>
             </resource>
-        </resources>
+        </resources>-->
 
         <plugins>
             <!-- Maven github 可选 -->
